@@ -46,8 +46,10 @@ module.exports = {
       { extensions: ['.js', '.jsx', '.ts', '.tsx'] },
     ],
     'react/react-in-jsx-scope': 'off',
-
+    'react/self-closing-comp': 'off',
     'react/jsx-props-no-spreading': 'off',
+    'react/no-unused-prop-types': 'warn',
+
     'no-unused-vars': 'warn',
     'simple-import-sort/imports': 'error',
     'simple-import-sort/exports': 'error',
