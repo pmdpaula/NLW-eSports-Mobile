@@ -12,6 +12,7 @@ import { GameParms } from '../../@types/@navigation';
 import logoImg from '../../assets/logo-nlw-esports.png';
 import { Background } from '../../components/Background';
 import { DuoCard, DuoCardProps } from '../../components/DuoCard/DuoCard';
+import { DuoMatch } from '../../components/DuoMatch/DuoMatch';
 import { Heading } from '../../components/Heading/Heading';
 import { THEME } from '../../theme';
 import { styles } from './styles';
@@ -22,9 +23,23 @@ export function Game() {
   const game = route.params as GameParms;
 
   const [duos, setDuos] = useState<DuoCardProps[]>([]);
+  const [discordDuoSelected, setDiscordDuoSelected] = useState<string>('');
 
   const handleGoBack = () => {
     navigation.goBack();
+  };
+
+  const getDiscordUser = async (adsId: string) => {
+    try {
+      await fetch(`${API_URL}/ads/${adsId}/discord`)
+        .then((response) => response.json())
+        .then((data: { discord: string }) => {
+          setDiscordDuoSelected(data.discord);
+        });
+    } catch (error) {
+      // eslint-disable-next-line no-console
+      console.log(error);
+    }
   };
 
   useEffect(() => {
@@ -64,8 +79,14 @@ export function Game() {
           data={duos}
           keyExtractor={(item) => item.id}
           renderItem={({ item }) => (
-            // eslint-disable-next-line @typescript-eslint/no-empty-function
-            <DuoCard data={item} onConnect={() => {}} />
+            // eslint-disable-next-line @typescript-eslint/no-empty-function, @typescript-eslint/no-misused-promises
+            <DuoCard
+              data={item}
+              onConnect={() => {
+                // eslint-disable-next-line @typescript-eslint/no-floating-promises
+                getDiscordUser(item.id);
+              }}
+            />
           )}
           horizontal
           // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
@@ -81,6 +102,11 @@ export function Game() {
               Não há anúncios publicados para este jogo ainda.
             </Text>
           )}
+        />
+        <DuoMatch
+          visible={discordDuoSelected.length > 0}
+          discord={discordDuoSelected}
+          onClose={() => setDiscordDuoSelected('')}
         />
       </SafeAreaView>
     </Background>

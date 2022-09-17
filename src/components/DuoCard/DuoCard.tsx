@@ -42,7 +42,7 @@ export function DuoCard({ data, onConnect }: Props) {
       />
 
       {/* eslint-disable-next-line @typescript-eslint/no-unsafe-assignment */}
-      <TouchableOpacity style={styles.button}>
+      <TouchableOpacity onPress={onConnect} style={styles.button}>
         <GameController color={THEME.COLORS.TEXT} size={20} />
         <Text style={styles.buttonTitle}>Conectar</Text>
       </TouchableOpacity>

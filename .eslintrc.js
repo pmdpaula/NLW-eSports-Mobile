@@ -50,7 +50,7 @@ module.exports = {
     'react/jsx-props-no-spreading': 'off',
     'react/no-unused-prop-types': 'warn',
 
-    'no-unused-vars': 'warn',
+    'no-unused-vars': 'off',  // existe alerta para o mesmo motivo com typescript
     'simple-import-sort/imports': 'error',
     'simple-import-sort/exports': 'error',
     'import/prefer-default-export': 'off',
