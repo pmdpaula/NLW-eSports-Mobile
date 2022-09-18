@@ -6,21 +6,71 @@
 ## Passos executados nas aulas
 
 
-### Aula 01 - 
+### Aula 01 - Base Building
+- [Instalação do Expo](https://docs.expo.dev/get-started/installation/)
+O Expo será instalado globalmente
 
-### Aula 02 - 
+```
+npm i -g expo-cli
+```
+- Login na conta Expo  
+Pedirá usuário e senha
 
-### Aula 03 - 
-...
-- Instalação dos ícones expo
+```
+npx expo login
+```
+
+- Configuração do projeto
+Passaremos por algumas perguntas para configurar o projeto. Cria o projeto com o nome passado no comando.
+
+```
+npx create-expo-app mobile
+cd mobile
+```
+- Iniciar o emulador com o Android Studio
+
+- Iniciar o projeto
+O Metro Bundler do Expo abrirá para a comunicação com o emulador ou o celular que for usar.
+
+```
+npx expo start
+```
+
+Com o WSL a comunicação com o expo e o emulador pode não ser automática. Pode-se abrir o expo no emulador e digitar o endereço apresentado com o comando abaixo.
+
+
+### Aula 02 - High Speed
+- [Usando uma font do Google](https://docs.expo.dev/guides/using-custom-fonts/#using-a-google-font)  
+O comando abaixo instala a fonte ___Inter___
+```
+npx expo install expo-font @expo-google-fonts/inter
+```
+> Ao utilizar o comando expo, reinicie e servidor Expo.
+
+  
+- [Instalação do React Navigation](https://reactnavigation.org/docs/getting-started/)
+
+```
+npx expo install react-native-safe-area-context
+```
+
+- [Pacote LinearGradient do Expo](https://docs.expo.dev/versions/latest/sdk/linear-gradient/)
+
+```
+npx expo install expo-linear-gradient
+```
+
+
+### Aula 03 - To be continued
+
+- [Instalação dos ícones expo](https://github.com/oblador/react-native-vector-icons)  
+
 ```
 yarn add @expo/vector-icons
 ```
 
-- 
 
-### Aula 04 - 
-...
+### Aula 04 - Power Up
 
 - [React Navigation](https://reactnavigation.org/docs/getting-started)
 
@@ -84,16 +134,4 @@ Parar aplicação e executar
 ***[Teste de notificações](https://expo.dev/notifications)***
 
 
-
-### Aula 05 - 
-
-
-### Aula 06 - 
-
-
-
-## Outros links
-
-- [Ícones do Expo para ReactNative](https://github.com/oblador/react-native-vector-icons)
-
-- 
+### Aula 05 - Final Round
